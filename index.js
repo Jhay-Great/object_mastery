@@ -50,13 +50,35 @@ superhero[reveal] = reveal;
 // • Task: Create a Superhero constructor function to streamline the creation of
 // multiple superheroes.
 
-const factoryObjects = function({name, secretIdentity, power, weakness}) {
+
+const createCharacter = function(type) {
+    const Superhero = function(name, secretIdentity, power, weakness) {
+        this.type = type
+        this.name = name;
+        this.secretIdentity = secretIdentity;
+        this.power = power;
+        this.weakness = weakness;
     
+    }
+    Superhero.prototype.usePower = usePower;
+    Superhero.prototype.revealIdentity = revealIdentity;
+    Superhero.prototype.speak = function(speech) {
+        console.log(`Your ${this.power} won't work against me`);
+    }
+
+    return Superhero;    
+
 }
 
+const Hero = createCharacter('hero');
+const Villain = createCharacter('villain');
+
+const superman = new Hero("Superman", "Clark Kent", ["Flight", "Super Strength", "X-Ray Vision"], "Kryptonite")
+const lexLuthor = new Villain("Lex Luthor", "Lex Luthor", ["Genius Level Intellect", "Wealth"], "Kryptonite Envy");
+
+console.log('hero: ', superman, 'villain: ', lexLuthor)
 
 const Superhero = function(name, secretIdentity, power, weakness) {
-    // this.object = object;
     this.name = name;
     this.secretIdentity = secretIdentity;
     this.power = power;
@@ -65,6 +87,9 @@ const Superhero = function(name, secretIdentity, power, weakness) {
 }
 Superhero.prototype.usePower = usePower;
 Superhero.prototype.revealIdentity = revealIdentity;
+Superhero.prototype.speak = function(speech) {
+    console.log(`Your ${this.power} won't work against me`);
+}
 
 
 
@@ -72,7 +97,16 @@ Superhero.prototype.revealIdentity = revealIdentity;
 const vapourize = new Superhero('Dennis King', 'vapourize', ['cooling', 'freezing', 'mist'], 'fire');
 const dashKid = new Superhero('Evan lewis Jr.', 'vapourize', ['cooling', 'freezing', 'mist'], 'fire');
 const monsterHunter = new Superhero('Vanessa Khan', 'Monster Hunter', ['cooling', 'freezing', 'mist'], 'fire');
-console.log(spies);
-console.log(spies.revealIdentity());
-spies.usePower('cooling');
+// console.log(vapourize);
+// console.log(vapourize.revealIdentity());
+// vapourize.usePower('cooling');
+
+// Object Iteration and Transformation:
+// • Task: Use forEach, map, or filter to manipulate an array of superheroes and
+// supervillains
+
+const playHero = function(...heros) {
+    console.log(heros);
+}
+playHero(vapourize, dashKid, monsterHunter);
 
