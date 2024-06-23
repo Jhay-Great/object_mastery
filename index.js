@@ -76,7 +76,6 @@ const superHumans = [superman, captainPlanet, ScoobyDoo, lexLuthor, thanos, cowG
 const playHero = function(characters) {
     // forEach
     characters.forEach(character => {
-        if (character.type !== 'villain') return;
         character.speak();
     })
     // map
