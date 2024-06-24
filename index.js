@@ -1,20 +1,9 @@
-// Object Creation Basics:
-// • Task: Create an object representing a superhero with properties like name,
-// secretIdentity, powers (an array), and weakness.
-
-// creating an object for superhero with props like secretIdentity, powers[], weakness
 const superhero = {
     name: 'Kofi Yeboah',
     secretIdentity: 'Master chef',
     powers: ['mixologist', 'telepathy', 'kitchen king', 'indestructible', 'knife skills'],
     weakness: 'always hungry',
 }
-
-// Methods and Functionality:
-// • Task: Add methods to the superhero object:
-// o usePower(powerName): Logs a message about the hero using a
-// specific power.
-// o revealIdentity(): Logs the hero’s secret identity
 
 const usePower = function (usePower) {
     this.power.map(power => {
@@ -26,15 +15,17 @@ const usePower = function (usePower) {
     })
 }
 
-const reveal = () => `I am ${this.secretIdentity}`; // does the this keyword references the object where it was declared or the object that's calling it
+// const reveal = () => `I am ${this.secretIdentity}`; // does the this keyword references the object where it was declared or the object that's calling it
+console.log(superhero.reveal());
 const revealIdentity = function() {
     return `I am ${this.secretIdentity}`;
 }
 
 
 superhero[usePower] = usePower;
-superhero[revealIdentity] = revealIdentity; // the this keyword returns undefined here, even tho I'm calling it with an object it returns undefined, find out why
-superhero[reveal] = reveal;
+superhero[revealIdentity] = revealIdentity; 
+// superhero[reveal] = reveal; // the this keyword returns undefined here, even tho I'm calling it with an object it returns undefined, find out why
+
 
 
 const createCharacter = function(type) {
